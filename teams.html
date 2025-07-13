@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams - Mostly Forsyth Dynasty League</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Sleek Design - Teams Page */
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1e293b;
+            --accent-gold: #f59e0b;
+            --accent-emerald: #059669;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .navbar {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.025em;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.75rem 1.25rem !important;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            margin: 0 0.25rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--text-primary) !important;
+            background-color: var(--bg-secondary);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--text-primary) !important;
+            background-color: var(--bg-secondary);
+            font-weight: 600;
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .team-card {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .team-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-gold);
+        }
+
+        .team-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-logo {
+            width: 64px;
+            height: 64px;
+            object-fit: contain;
+            margin-right: 1rem;
+            border-radius: 0.5rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .player-photo {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--accent-gold);
+            margin-left: auto;
+        }
+
+        .team-name {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.025em;
+        }
+
+        .player-name {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+
+        .team-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .team-stats {
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            padding: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .stat-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .stat-row:last-child {
+            border-bottom: none;
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .stat-value {
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .achievements-section {
+            margin-top: 1rem;
+        }
+
+        .achievements-title {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        .achievement-badge {
+            background: linear-gradient(135deg, var(--accent-gold), #f97316);
+            color: white;
+            padding: 0.4rem 0.8rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 500;
+            margin: 0.25rem 0.25rem 0.25rem 0;
+            display: inline-block;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .site-footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .hit-counter {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid var(--border-light);
+            border-top: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .team-card {
+                padding: 1.5rem;
+            }
+            
+            .team-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .player-photo {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-trophy me-2"></i>Mostly Forsyth
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Current Rankings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="history.html">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="teams.html">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Commissioner</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">League Teams</h1>
+            <p class="page-subtitle">Meet the dynasties and their builders</p>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <div class="container my-5">
+        <div class="row" id="teams-container">
+            <!-- Teams will be loaded here by JavaScript -->
+            <div class="col-12 text-center">
+                <div class="spinner-border text-primary" role="status">
+                    <span class="visually-hidden">Loading teams...</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="hit-counter">
+                <i class="fas fa-eye me-2"></i>
+                <span id="hit-counter">Loading...</span> total views
+            </div>
+            
+            <div class="footer-content">
+                <p>&copy; 2025 Mostly Forsyth Dynasty League</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple hit counter using localStorage
+        function updateHitCounter() {
+            let hits = localStorage.getItem('mostlyForsythHits') || 0;
+            hits = parseInt(hits) + 1;
+            localStorage.setItem('mostlyForsythHits', hits);
+            document.getElementById('hit-counter').textContent = hits.toLocaleString();
+        }
+
+        // Load teams from JSON
+        async function loadTeams() {
+            try {
+                const response = await fetch('data/teams.json');
+                const data = await response.json();
+                
+                const container = document.getElementById('teams-container');
+                container.innerHTML = '';
+                
+                data.teams.forEach(team => {
+                    const teamHTML = `
+                        <div class="col-lg-6 col-xl-4 mb-4">
+                            <div class="team-card">
+                                <div class="team-header">
+                                    <img src="${team.ncaaLogo}" alt="${team.teamName} Logo" class="team-logo" 
+                                         onerror="this.src='https://via.placeholder.com/64x64?text=Logo'">
+                                    <div class="flex-grow-1">
+                                        <div class="team-name">${team.teamName}</div>
+                                        <div class="player-name">${team.playerName}</div>
+                                    </div>
+                                    <img src="${team.playerPhoto}" alt="${team.playerName}" class="player-photo"
+                                         onerror="this.src='https://via.placeholder.com/48x48?text=Player'">
+                                </div>
+                                
+                                <p class="team-description">${team.description}</p>
+                                
+                                <div class="team-stats">
+                                    <div class="stat-row">
+                                        <span class="stat-label">Play Style</span>
+                                        <span class="stat-value">${team.favoritePlayStyle}</span>
+                                    </div>
+                                    <div class="stat-row">
+                                        <span class="stat-label">Joined League</span>
+                                        <span class="stat-value">${team.joinedLeague}</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="achievements-section">
+                                    <div class="achievements-title">Achievements</div>
+                                    ${team.achievements.map(achievement => 
+                                        `<span class="achievement-badge">${achievement}</span>`
+                                    ).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    container.innerHTML += teamHTML;
+                });
+                
+            } catch (error) {
+                console.error('Error loading teams:', error);
+                document.getElementById('teams-container').innerHTML = 
+                    '<div class="col-12"><div class="alert alert-warning">Unable to load teams. Please check back later.</div></div>';
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateHitCounter();
+            loadTeams();
+        });
+    </script>
+</body>
+</html>

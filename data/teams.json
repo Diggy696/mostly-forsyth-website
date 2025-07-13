@@ -1,0 +1,70 @@
+{
+  "teams": [
+    {
+      "id": "player1",
+      "teamName": "Wisconsin Badgers", 
+      "playerName": "Darren Webber",
+      "ncaaLogo": "images/logos/Wisconsin.jpg",
+      "playerPhoto": "images/players/player1.jpg",
+      "description": "Leading the dynasty with experience. Known for aggressive play-calling and throwing INTs.",
+      "achievements": ["Being the commish"],
+      "favoritePlayStyle": "'God I hope this works''",
+      "joinedLeague": "2024"
+    },
+    {
+      "id": "player2", 
+      "teamName": "Stanford Cardinal",
+      "playerName": "Brooks Benjamin Ore",
+      "ncaaLogo": "images/logos/Stanford.jpg",
+      "playerPhoto": "images/players/player2.jpg", 
+      "description": "Michael Vick being his favorite player - we know what this guy is all about.",
+      "achievements": ["Most rush yards by QB"],
+      "favoritePlayStyle": "Is my QB Athletic?",
+      "joinedLeague": "2024"
+    },
+    {
+      "id": "player3",
+      "teamName": "USC Trojans", 
+      "playerName": "Jacob Roth Mueller",
+      "ncaaLogo": "images/logos/USC.jpg",
+      "playerPhoto": "images/players/player3.jpg",
+      "description": "Oftentimes considered the league doormat, watch out, the glare of the screen late at night disturbs his wife Jenny as he looks for his next tactic to use on Youtube.",
+      "achievements": ["Turnover ratio king - just not in his favor"],
+      "favoritePlayStyle": "I just hope I don't get skunked", 
+      "joinedLeague": "2024"
+    },
+    {
+      "id": "player4",
+      "teamName": "Nebraska 'Huskers",
+      "playerName": "Evan Chase Harrison", 
+      "ncaaLogo": "images/logos/Nebraska.jpg",
+      "playerPhoto": "images/players/player4.jpg",
+      "description": "Natural gamer.  His head can't contain all that ego. He'll always tell you what you're doing wrong, unless you're playing him.",
+      "achievements": ["Most pass yards in a game"],
+      "favoritePlayStyle": "Hurr Durr I like da air raid",
+      "joinedLeague": "2024"
+    },
+    {
+      "id": "player5",
+      "teamName": "Minnesota Gophers",
+      "playerName": "Cameron Kirk Clinard",
+      "ncaaLogo": "images/logos/Minnesota.jpg", 
+      "playerPhoto": "images/players/player5.jpg",
+      "description": "A bit of unknown. Father to two. He married someone with the same name as him. I can only imagine to free up space in his head for his elite play calling.",
+      "achievements": [],
+      "favoritePlayStyle": "Just be better than another 8-4 Tarheels football season",
+      "joinedLeague": "2025"
+    },
+    {
+      "id": "player6",
+      "teamName": "Maryland Terrapins",
+      "playerName": "Dan Thomas Smith",
+      "ncaaLogo": "images/logos/Maryland.jpg",
+      "playerPhoto": "images/players/player6.jpg", 
+      "description": "Current reverend - but everyone is afraid to check if he renewed his license.  Dude knows ball.  But can he play it?",
+      "achievements": [],
+      "favoritePlayStyle": "<Insert obscure fact about a game from 1978 and a full player history of Maryland offensive linemen from the 1983 team>",
+      "joinedLeague": "2025"
+    }
+  ]
+}

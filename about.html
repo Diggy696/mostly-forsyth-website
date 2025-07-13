@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commissioner - Mostly Forsyth Dynasty League</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Sleek Design - About Page */
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1e293b;
+            --accent-gold: #f59e0b;
+            --accent-emerald: #059669;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .navbar {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.025em;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.75rem 1.25rem !important;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            margin: 0 0.25rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--text-primary) !important;
+            background-color: var(--bg-secondary);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--text-primary) !important;
+            background-color: var(--bg-secondary);
+            font-weight: 600;
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .commissioner-card {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 3rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .commissioner-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 1.5rem;
+            border: 3px solid var(--accent-gold);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .commissioner-name {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .commissioner-title {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .commissioner-bio {
+            color: var(--text-secondary);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .info-section {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 1.5rem 0;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            letter-spacing: -0.025em;
+        }
+
+        .section-title i {
+            margin-right: 0.75rem;
+            color: var(--accent-gold);
+        }
+
+        .contact-item {
+            background: var(--bg-secondary);
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            margin: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+
+        .contact-item:hover {
+            background: var(--border-light);
+        }
+
+        .contact-item i {
+            color: var(--accent-gold);
+            margin-right: 1rem;
+            width: 20px;
+            font-size: 1.1rem;
+        }
+
+        .contact-label {
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-right: 0.5rem;
+        }
+
+        .contact-value {
+            color: var(--text-secondary);
+        }
+
+        .rule-item {
+            background: var(--bg-secondary);
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            margin: 0.75rem 0;
+            border-left: 4px solid var(--accent-gold);
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .rule-item i {
+            color: var(--accent-emerald);
+            margin-right: 0.75rem;
+            margin-top: 0.1rem;
+        }
+
+        .stat-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .stat-box {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: all 0.2s ease;
+        }
+
+        .stat-box:hover {
+            background: var(--bg-card);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .stat-label {
+            font-weight: 600;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .league-history {
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .site-footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .hit-counter {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid var(--border-light);
+            border-top: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .commissioner-card {
+                padding: 2rem 1.5rem;
+            }
+            
+            .info-section {
+                padding: 1.5rem;
+            }
+            
+            .stat-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <i class="fas fa-trophy me-2"></i>Mostly Forsyth
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Power Rankings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teams.html">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="about.html">Commissioner</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Meet the Commissioner</h1>
+            <p class="page-subtitle">Leadership and vision behind Mostly Forsyth</p>
+        </div>
+    </section>
+
+    <!-- Commissioner Info -->
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <!-- Main Commissioner Card -->
+                <div class="commissioner-card" id="commissioner-info">
+                    <div class="loading-container">
+                        <div class="loading-spinner"></div>
+                        <span class="visually-hidden">Loading commissioner info...</span>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="info-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-chart-bar"></i>Quick Stats
+                    </h3>
+                    <div class="stat-grid" id="commissioner-stats">
+                        <!-- Stats will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="info-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-envelope"></i>Contact Information
+                    </h3>
+                    <div id="contact-info">
+                        <!-- Contact info will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- League Rules -->
+                <div class="info-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-gavel"></i>League Rules
+                    </h3>
+                    <div id="league-rules">
+                        <!-- Rules will be loaded here -->
+                    </div>
+                </div>
+
+                <!-- League History -->
+                <div class="info-section">
+                    <h3 class="section-title">
+                        <i class="fas fa-history"></i>League History
+                    </h3>
+                    <div id="league-history">
+                        <!-- History will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="hit-counter">
+                <i class="fas fa-eye me-2"></i>
+                <span id="hit-counter">Loading...</span> total views
+            </div>
+            
+            <div class="footer-content">
+                <p>&copy; 2025 Mostly Forsyth Dynasty League</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Simple hit counter using localStorage
+        function updateHitCounter() {
+            let hits = localStorage.getItem('mostlyForsythHits') || 0;
+            hits = parseInt(hits) + 1;
+            localStorage.setItem('mostlyForsythHits', hits);
+            document.getElementById('hit-counter').textContent = hits.toLocaleString();
+        }
+
+        // Load commissioner info from JSON
+        async function loadCommissionerInfo() {
+            try {
+                const response = await fetch('data/commissioner.json');
+                const data = await response.json();
+                
+                // Main commissioner card
+                document.getElementById('commissioner-info').innerHTML = `
+                    <img src="${data.photo}" alt="${data.name}" class="commissioner-photo"
+                         onerror="this.src='https://via.placeholder.com/160x160?text=Commissioner'">
+                    <div class="commissioner-name">${data.name}</div>
+                    <div class="commissioner-title">${data.title}</div>
+                    <p class="commissioner-bio">${data.bio}</p>
+                `;
+
+                // Quick stats
+                document.getElementById('commissioner-stats').innerHTML = `
+                    <div class="stat-box">
+                        <div class="stat-label">Experience</div>
+                        <div class="stat-value">${data.experience}</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Favorite Team</div>
+                        <div class="stat-value">${data.favoriteTeam}</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-label">Gamer Tag</div>
+                        <div class="stat-value">${data.gamerTag}</div>
+                    </div>
+                `;
+
+                // Contact information
+                document.getElementById('contact-info').innerHTML = `
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span class="contact-label">Email:</span>
+                        <span class="contact-value">${data.contactInfo.email}</span>
+                    </div>
+                `;
+
+                // League rules
+                const rulesHTML = data.leagueRules.map(rule => 
+                    `<div class="rule-item"><i class="fas fa-check-circle"></i><span>${rule}</span></div>`
+                ).join('');
+                document.getElementById('league-rules').innerHTML = rulesHTML;
+
+                // League history
+                document.getElementById('league-history').innerHTML = `
+                    <p class="league-history">${data.leagueHistory}</p>
+                `;
+                
+            } catch (error) {
+                console.error('Error loading commissioner info:', error);
+                document.getElementById('commissioner-info').innerHTML = 
+                    '<div class="alert alert-warning">Unable to load commissioner information. Please check back later.</div>';
+            }
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateHitCounter();
+            loadCommissionerInfo();
+        });
+    </script>
+</body>
+</html>

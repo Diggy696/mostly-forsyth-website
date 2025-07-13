@@ -1,0 +1,78 @@
+{
+  "lastUpdated": "July 13, 2025",
+  "currentSeason": "2025 Season 1",
+  "rankings": [
+    {
+      "teamName": "Nebraska",
+      "playerName": "Evan Chase",
+      "commentary": "Evan Chase left no doubt that he is clearly #1.  Stomping out his computer opponent was a convincing way to start the season.",
+      "stats": {
+        "record": "8-1",
+        "lastOpponent": "vs Georgia (W 34-17)",
+        "nextOpponent": "vs Auburn (W 28-14)",
+        "lastWin": "vs Georgia (34-17)",
+        "pointsPerGame": "31.2"
+      }
+    },
+    {
+      "teamName": "Georgia Bulldogs",
+      "playerName": "Player Two", 
+      "commentary": "Despite the tough loss to Alabama, Georgia remains a powerhouse in the SEC. Their defense has been elite all season, and they're still in great position for a playoff berth with strong wins over ranked opponents.",
+      "stats": {
+        "record": "7-2",
+        "lastOpponent": "@ Alabama (L 17-34)",
+        "lastComputerWin": "vs Florida (W 42-20)",
+        "lastWin": "vs Tennessee (24-17)",
+        "pointsPerGame": "28.7"
+      }
+    },
+    {
+      "teamName": "Ohio State Buckeyes",
+      "playerName": "Player Three",
+      "commentary": "The Buckeyes have been impressive in Big Ten play, showcasing a balanced attack that can beat teams multiple ways. Their offensive line has been dominant, creating huge running lanes and giving their quarterback plenty of time.",
+      "stats": {
+        "record": "7-1",
+        "lastOpponent": "vs Penn State (W 31-24)",
+        "lastComputerWin": "vs Michigan State (W 35-10)",
+        "lastWin": "vs Penn State (31-24)",
+        "pointsPerGame": "32.8"
+      }
+    },
+    {
+      "teamName": "Texas Longhorns",
+      "playerName": "Player Four",
+      "commentary": "Texas has adapted well to SEC play, showing they belong with the big boys. Their defense has been opportunistic, creating turnovers at crucial moments, while their offense has found its rhythm in recent weeks.",
+      "stats": {
+        "record": "6-2",
+        "lastOpponent": "vs Oklahoma (W 28-21)",
+        "lastComputerWin": "vs TCU (W 42-17)",
+        "lastWin": "vs Oklahoma (28-21)",
+        "pointsPerGame": "29.4"
+      }
+    },
+    {
+      "teamName": "Oregon Ducks",
+      "playerName": "Player Five",
+      "commentary": "The Ducks have had some inconsistent performances but remain dangerous when clicking on all cylinders. Their fast-paced offense can put up points in a hurry, though defensive lapses have cost them in close games.",
+      "stats": {
+        "record": "5-3",
+        "lastOpponent": "@ Washington (L 21-28)",
+        "lastComputerWin": "vs Stanford (W 45-14)",
+        "lastWin": "vs USC (35-28)",
+        "pointsPerGame": "33.1"
+      }
+    },
+    {
+      "teamName": "Notre Dame Fighting Irish",
+      "playerName": "Player Six",
+      "commentary": "Notre Dame has struggled to find consistency this season, with some impressive wins overshadowed by disappointing losses. They'll need to string together strong performances to salvage their season and bowl hopes.",
+      "stats": {
+        "record": "4-4",
+        "lastOpponent": "vs Navy (W 35-17)",
+        "lastComputerWin": "vs Boston College (W 21-14)",
+        "lastWin": "vs Navy (35-17)",
+        "pointsPerGame": "24.6"
+      }
+    }
+  ]
+}

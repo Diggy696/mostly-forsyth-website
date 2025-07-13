@@ -1,0 +1,20 @@
+{
+  "name": "Darren webber",
+  "title": "League Commissioner & Founder",
+  "photo": "images/players/Darren.jpg",
+  "bio": "Welcome to Mostly Forsyth! I founded this dynasty league to bring together passionate college football gaming enthusiasts who want to experience the thrill of building championship programs from the ground up. With years of NCAA gaming experience and a love for competitive play, I've designed this league to be both challenging and fun for players of all skill levels.",
+  "experience": "10+ years of NCAA gaming experience, most of it mediocre",
+  "favoriteTeam": "North Carolina Tar Heels", 
+  "gamerTag": "Diggy696",
+  "contactInfo": {
+    "email": "darren.webber.unc@gmail.com"
+  },
+  "leagueRules": [
+    "All games must be played on All-American difficulty",
+    "No custom playbooks - NCAA default playbooks only", 
+    "Reset Rule: If you make two natties in a row, time to find a new team, we like parody.",
+    "Auto advance every Thursday and Sunday morning unless excused.",
+    "Custom Conferences"
+  ],
+  "leagueHistory": "Founded in 2024, Mostly Forsyth has grown from a small group of friends to a competitive dynasty league featuring some of the best college football gamers around who also have very colorful language. Our focus is on fair play, competitive balance, and most importantly - having fun while building championship programs."
+}

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rankings History - Mostly Forsyth Dynasty League</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Modern Sleek Design - History Page */
+        :root {
+            --primary-dark: #0f172a;
+            --secondary-dark: #1e293b;
+            --accent-gold: #f59e0b;
+            --accent-emerald: #059669;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: #ffffff;
+            --border-light: #e2e8f0;
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            font-weight: 400;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .navbar {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-light);
+            box-shadow: var(--shadow-sm);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.75rem;
+            color: var(--text-primary) !important;
+            letter-spacing: -0.025em;
+        }
+
+        .navbar-nav .nav-link {
+            color: var(--text-secondary) !important;
+            font-weight: 500;
+            font-size: 0.95rem;
+            padding: 0.75rem 1.25rem !important;
+            border-radius: 0.5rem;
+            transition: all 0.2s ease;
+            margin: 0 0.25rem;
+        }
+
+        .navbar-nav .nav-link:hover {
+            color: var(--text-primary) !important;
+            background-color: var(--bg-secondary);
+        }
+
+        .navbar-nav .nav-link.active {
+            color: var(--text-primary) !important;
+            background-color: var(--bg-secondary);
+            font-weight: 600;
+        }
+
+        .page-header {
+            background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+            padding: 3rem 0 2rem;
+            border-bottom: 1px solid var(--border-light);
+            text-align: center;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.025em;
+        }
+
+        .page-subtitle {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+
+        .season-selector {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+        }
+
+        .season-tabs {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .season-tab {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-decoration: none;
+        }
+
+        .season-tab:hover {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .season-tab.active {
+            background: var(--accent-gold);
+            color: white;
+            border-color: var(--accent-gold);
+        }
+
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .week-card {
+            background: var(--bg-card);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-light);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .week-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--accent-gold);
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .week-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .week-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .week-date {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        .week-preview {
+            margin-top: 1rem;
+        }
+
+        .ranking-preview {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--bg-secondary);
+            font-size: 0.9rem;
+        }
+
+        .ranking-preview:last-child {
+            border-bottom: none;
+        }
+
+        .preview-rank {
+            background: var(--text-primary);
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.8rem;
+            margin-right: 0.75rem;
+        }
+
+        .preview-team {
+            flex-grow: 1;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .preview-record {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+        }
+
+        .current-week-badge {
+            background: var(--accent-emerald);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .no-history {
+            text-align: center;
+            padding: 3rem;
+            color: var(--text-muted);
+        }
+
+        .back-button {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border-light);
+            color: var(--text-primary);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.75rem;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .back-button:hover {
+            background: var(--bg-card);
+            color: var(--text-primary);
+            text-decoration: none;
+        }
+
+        .back-button i {
+            margin-right: 0.5rem;
+        }
+
+        .site-footer {
+            background: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            padding: 2rem 0;
+            margin-top: 4rem;
+        }
+
+        .hit-counter {
+            text-align: center;
+            padding: 1.5rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            background: var(--bg-secondary);
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .footer-content {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .loading-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+        }
+
+        .loading-spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 3px solid var(--border-light);
+            border-top: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .week-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .season-tabs {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                Mostly Forsyth
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Current Rankings</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="history.html">History</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="teams.html">Teams</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Commissioner</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title">Rankings History</h1>
+            <p class="page-subtitle">Track the evolution of our dynasty league</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="container my-5">
+        <!-- Season Selector -->
+        <div class="season-selector">
+            <h3 class="mb-3">Select Season</h3>
+            <div class="season-tabs" id="season-tabs">
+                <!-- Season tabs will be loaded here -->
+                <div class="loading-container">
+                    <div class="loading-spinner"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Week History Grid -->
+        <div id="history-content">
+            <!-- Content will be loaded here -->
+            <div class="loading-container">
+                <div class="loading-spinner"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="hit-counter">
+                <i class="fas fa-eye me-2"></i>
+                <span id="hit-counter">Loading...</span> total views
+            </div>
+            
+            <div class="footer-content">
+                <p>&copy; 2025 Mostly Forsyth Dynasty League</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script>
+        let currentSeason = '2026-season-1';
+
+        // Hit counter functionality
+        function updateHitCounter() {
+            let hits = localStorage.getItem('mostlyForsythHits') || 0;
+            hits = parseInt(hits) + 1;
+            localStorage.setItem('mostlyForsythHits', hits);
+            document.getElementById('hit-counter').textContent = hits.toLocaleString();
+        }
+
+        // Load available seasons
+        async function loadSeasons() {
+            try {
+                const response = await fetch('data/history/seasons.json');
+                if (!response.ok) {
+                    throw new Error('No history data found');
+                }
+                
+                const data = await response.json();
+                const tabsContainer = document.getElementById('season-tabs');
+                tabsContainer.innerHTML = '';
+                
+                data.seasons.forEach(season => {
+                    const tab = document.createElement('a');
+                    tab.className = `season-tab ${season.id === currentSeason ? 'active' : ''}`;
+                    tab.href = '#';
+                    tab.textContent = season.name;
+                    tab.onclick = (e) => {
+                        e.preventDefault();
+                        selectSeason(season.id);
+                    };
+                    tabsContainer.appendChild(tab);
+                });
+                
+                loadSeasonHistory(currentSeason);
+                
+            } catch (error) {
+                console.error('Error loading seasons:', error);
+                document.getElementById('season-tabs').innerHTML = `
+                    <div class="no-history">
+                        <i class="fas fa-history fa-3x mb-3" style="color: var(--text-muted);"></i>
+                        <h4>No History Available Yet</h4>
+                        <p>Historical rankings will appear here after your first archived week.</p>
+                        <a href="index.html" class="btn btn-primary">View Current Rankings</a>
+                    </div>
+                `;
+                document.getElementById('history-content').innerHTML = '';
+            }
+        }
+
+        // Select a season
+        function selectSeason(seasonId) {
+            currentSeason = seasonId;
+            
+            // Update active tab
+            document.querySelectorAll('.season-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            loadSeasonHistory(seasonId);
+        }
+
+        // Load history for a specific season
+        async function loadSeasonHistory(seasonId) {
+            try {
+                const response = await fetch(`data/history/${seasonId}/weeks.json`);
+                if (!response.ok) {
+                    throw new Error('Season data not found');
+                }
+                
+                const data = await response.json();
+                const container = document.getElementById('history-content');
+                
+                if (data.weeks.length === 0) {
+                    container.innerHTML = `
+                        <div class="no-history">
+                            <i class="fas fa-calendar-times fa-3x mb-3" style="color: var(--text-muted);"></i>
+                            <h4>No Archived Weeks Yet</h4>
+                            <p>This season's historical rankings will appear here after archiving weeks.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Sort weeks by week number (descending - newest first)
+                data.weeks.sort((a, b) => b.weekNumber - a.weekNumber);
+                
+                const weekGrid = document.createElement('div');
+                weekGrid.className = 'week-grid';
+                
+                data.weeks.forEach(week => {
+                    const weekCard = createWeekCard(week, seasonId);
+                    weekGrid.appendChild(weekCard);
+                });
+                
+                container.innerHTML = '';
+                container.appendChild(weekGrid);
+                
+            } catch (error) {
+                console.error('Error loading season history:', error);
+                document.getElementById('history-content').innerHTML = `
+                    <div class="no-history">
+                        <i class="fas fa-exclamation-triangle fa-3x mb-3" style="color: var(--text-muted);"></i>
+                        <h4>Error Loading History</h4>
+                        <p>Unable to load historical data for this season.</p>
+                    </div>
+                `;
+            }
+        }
+
+        // Create a week card
+        function createWeekCard(week, seasonId) {
+            const card = document.createElement('a');
+            card.className = 'week-card';
+            card.href = `week-view.html?season=${seasonId}&week=${week.weekNumber}`;
+            
+            const isCurrentWeek = week.isCurrent || false;
+            
+            card.innerHTML = `
+                <div class="week-header">
+                    <div>
+                        <div class="week-title">Week ${week.weekNumber}</div>
+                        <div class="week-date">${new Date(week.date).toLocaleDateString('en-US', { 
+                            month: 'long', 
+                            day: 'numeric',
+                            year: 'numeric'
+                        })}</div>
+                    </div>
+                    ${isCurrentWeek ? '<span class="current-week-badge">Current</span>' : ''}
+                </div>
+                
+                <div class="week-preview">
+                    ${week.preview.slice(0, 3).map(team => `
+                        <div class="ranking-preview">
+                            <div class="preview-rank">${team.rank}</div>
+                            <div class="preview-team">${team.teamName}</div>
+                            <div class="preview-record">${team.record}</div>
+                        </div>
+                    `).join('')}
+                    ${week.preview.length > 3 ? `<div class="text-muted mt-2" style="font-size: 0.8rem;">+${week.preview.length - 3} more teams</div>` : ''}
+                </div>
+            `;
+            
+            return card;
+        }
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateHitCounter();
+            loadSeasons();
+        });
+    </script>
+</body>
+</html>
