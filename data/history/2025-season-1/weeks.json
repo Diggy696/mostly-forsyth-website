@@ -1,5 +1,27 @@
-{
-  "seasonId": "2025-season-1",
-  "seasonName": "2025 Season 1",
-  "weeks": []
-}
+ {
+     "seasonId": "2025-season-1",
+     "seasonName": "2025 Season 1", 
+     "weeks": [
+       {
+         "weekNumber": 1,
+         "date": "2025-07-17T12:00:00Z",
+         "title": "Week 1 Rankings",
+         "isCurrent": false,
+         "preview": [
+           {
+             "rank": 1,
+             "teamName": "Nebraska",
+             "playerName": "Evan C. Harrison",
+             "record": "8-1"
+           },
+           {
+             "rank": 2,
+             "teamName": "Stanford",
+             "playerName": "Brooks B. Ore",
+             "record": "8-1"
+           },
+
+         ]
+       }
+     ]
+   }
