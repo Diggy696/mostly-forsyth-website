@@ -5,73 +5,73 @@
     {
       "teamName": "Nebraska",
       "playerName": "Evan Chase",
-      "commentary": "3 Top Ten Computer opponents. 3 Wins.  The only man still to play a human, it's hard to ignore the results.",
+      "commentary": "The Huskers keep on rolling. No surprise here. TThe two newbies come to Lincoln, let's see how he fares.",
       "stats": {
-        "record": "3-0",
-        "lastOpponent": "vs #14 Michigan (W 44-7)",
-        "nextOpponent": "at Mich St, vs Maryland, vs Minnesota",
-        "lastWin": "vs #14 Michigan (W 44-7)",
-        "pointsPerGame": "32.7"
+        "record": "5-0",
+        "lastOpponent": "@ Michigan State (W 14-3)",
+        "nextOpponent": "@ Maryland, @Minnesota, vs Washington",
+        "lastWin": "@ Michigan State (W 14-3)",
+        "pointsPerGame": "28.6"
       }
     },
     {
       "teamName": "Stanford Cardinal",
       "playerName": "Brooks Ore", 
-      "commentary": "The Cardinal has rolled since their opening week loss.  Toppling lowly USC and Wisconsin doesn't say much, but 3-1 does well enough to keep him at 2.",
+      "commentary": "The cardinal continued it's winning ways and looks to continue on rolling.",
       "stats": {
-        "record": "3-1",
-        "lastOpponent": "vs Illinois (W 23-20)",
-        "nextOpponent": "@ Washington, @ Michigan St., vs. Michigan",
-        "lastWin": "vs Illinois (W 23-20)",
-        "pointsPerGame": "29.25"
+        "record": "5-1",
+        "lastOpponent": "@ Washington (W 28-26)",
+        "nextOpponent": "@ Michigan State, @ Michigan, vs Clemson",
+        "lastWin": "@ Washington (W 28-26)",
+        "pointsPerGame": "29"
       }
-    },
-    {
-      "teamName": "Maryland Terrapins",
-      "playerName": "Daniel Thomas Smith",
-      "commentary": "Doing just enough in the fourth quarter, Coach Smith rallied the troops to keep them solidly middle of the pack.  Receivers could use a lesson or two in how to catch the ball though.",
-      "stats": {
-        "record": "2-2",
-        "lastOpponent": "vs Wisconsin (W 21-14)",
-        "nextOpponent": "@ Minn, vs. Colorado, @Nebraska",
-        "lastWin": "vs Wisconsin (W 21-14)",
-        "pointsPerGame": "20.25"
-      }
-    },
+    }, 
     {
       "teamName": "USC Trojans",
       "playerName": "Jacob Roth",
-      "commentary": "Once a bottom dweller, and still mostly is.  A close game with Stanford, and a huge win at home vs Minnesota gets the Trojans their first win and up to fourth.  Which says alot about this league.",
+      "commentary": "Rising from the ashes with a convincing win at Alabama, The mullinator is starting to cook. Look out, I believe they call this a winning streak.",
       "stats": {
-        "record": "1-4",
-        "lastOpponent": "vs. Minnesota (W 21-16)",
-        "nextOpponent": "@ Illinois, vs Alabama",
-        "lastWin": "vs. Minnesota (W 21-16)",
-        "pointsPerGame": "12.4"
+        "record": "3-4",
+        "lastOpponent": "@ Alabama (W 27-17)",
+        "nextOpponent": "Notre Dame, Wisconsin, Colorado",
+        "lastWin": "@ Alabama (W 27-17)",
+        "pointsPerGame": "15.71"
       }
     },
         {
       "teamName": "Minnesota Gophers",
       "playerName": "Cameron Clinard ",
-      "commentary": "The records say he's better, but after a closely contested match with the Trojans, we had to stick Coach Clinard here.  At least he's got a soft cushion before the real bottom of the league... ",
+      "commentary": "Coach Clinard came close to closing out Ohio State and snuck away with one at Maryland in OT.  Like bread...he's rising, but could sour quickly.",
       "stats": {
-        "record": "2-2",
-        "lastOpponent": "vs Penn State (W 24-17)",
-        "nextOpponent": "@ Maryland, @Ohio State, vs. Colorado",
-        "lastWin": "vs Penn State (W 24-17)",
-        "pointsPerGame": "19.5"
+        "record": "3-3",
+        "lastOpponent": "vs Maryland (W 34-21 OT)",
+        "nextOpponent": "Colorado, Nebraska, Miami",
+        "lastWin": "vs Maryland (W 34-21 OT)",
+        "pointsPerGame": "20.83"
+      }
+    },
+    {
+      "teamName": "Maryland Terrapins",
+      "playerName": "Daniel Thomas Smith",
+      "commentary": "Squeeking one out against the lowly badgers then blowing OT to Minnesota isn't doing much to convince the committe of much. Maryland continues to forge ahead, but going to Nebraska is likely going to keep him down.",
+      "stats": {
+        "record": "3-3",
+        "lastOpponent": "vs Colorado (W 10-3)",
+        "nextOpponent": "@Nebraska, @ Oregon, vs IU",
+        "lastWin": "vs Colorado (W 10-3)",
+        "pointsPerGame": "18.5"
       }
     },
     {
       "teamName": "Wisconsin Badgers",
       "playerName": "Darren Webber",
-      "commentary": "Want a free win? Just come on up to Madison. To put it bluntly, these guys stink.",
+      "commentary": "Scared of double OT once more, Coach Webber eeked one out against Michigan State, but couldn't hold his own against Michigan.  The lowly Badgers stay low.",
       "stats": {
-        "record": "1-4",
-        "lastOpponent": "@ Maryland (L 21-14)",
-        "nextOpponent": " vs Mich St, @ Michigan, vs. Iowa",
+        "record": "2-5",
+        "lastOpponent": "@ Maryland (L 14-3)",
+        "nextOpponent": " vs. Iowa , @ USC, vs. Washington",
         "lastWin": "N/A",
-        "pointsPerGame": "18.0"
+        "pointsPerGame": "18.42"
       }
     }
   ]

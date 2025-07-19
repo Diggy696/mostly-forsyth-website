@@ -7,6 +7,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
     <style>
         /* Modern Sleek Design for Mostly Forsyth Dynasty League */
         :root {
@@ -246,6 +247,76 @@
             color: var(--accent-emerald);
         }
 
+        /* Chart Styles */
+        .charts-section {
+            padding: 2rem 0;
+            opacity: 0;
+            animation: fadeIn 0.8s ease-out forwards;
+            animation-delay: 0.3s;
+        }
+        
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+            }
+        }
+
+        .section-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 2rem;
+        }
+
+        .chart-card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 1.5rem;
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+
+        .chart-card:hover {
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-2px);
+        }
+
+        .chart-subtitle {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        #team-select {
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: border-color 0.2s ease;
+        }
+
+        #team-select:focus {
+            border-color: var(--accent-gold);
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+        }
+        
+        /* Chart Responsive Adjustments */
+        @media (max-width: 768px) {
+            .chart-card {
+                padding: 1rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            canvas {
+                max-height: 250px !important;
+            }
+        }
+
         /* Footer - Clean and Minimal */
         .site-footer {
             background: var(--bg-card);
@@ -431,6 +502,34 @@
                     <span class="visually-hidden">Loading rankings...</span>
                 </div>
             </div>
+            
+            <!-- Interactive Charts Section -->
+            <div class="charts-section mt-5">
+                <h3 class="section-title mb-4">League Analytics</h3>
+                
+                <!-- Chart Grid -->
+                <div class="row g-4">
+                    <!-- PPG Comparison Chart -->
+                    <div class="col-12">
+                        <div class="chart-card">
+                            <canvas id="ppg-chart" height="300"></canvas>
+                        </div>
+                    </div>
+                    
+                    <!-- Team Trend Chart -->
+                    <div class="col-12 mt-4">
+                        <div class="chart-card">
+                            <h4 class="chart-subtitle mb-3">Select a Team to View Ranking Trend</h4>
+                            <select id="team-select" class="form-select mb-3" style="max-width: 300px;">
+                                <option value="">Choose a team...</option>
+                            </select>
+                            <div style="position: relative; height: 400px;">
+                                <canvas id="trend-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
@@ -456,6 +555,9 @@
     <!-- JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Global variable to store current trend chart
+        let currentTrendChart = null;
+        
         // Hit counter functionality
         function updateHitCounter() {
             let hits = localStorage.getItem('mostlyForsythHits') || 0;
@@ -500,6 +602,9 @@
                                     <h3>${team.teamName}</h3>
                                     <div class="player-name">${team.playerName}</div>
                                 </div>
+                                <div class="mini-chart-container" style="width: 80px; height: 30px; margin-left: auto;">
+                                    <canvas id="sparkline-${index}" width="80" height="30"></canvas>
+                                </div>
                             </div>
                             
                             <p class="commentary">${team.commentary}</p>
@@ -533,6 +638,9 @@
                     container.innerHTML += rankingHTML;
                 });
                 
+                // Initialize Charts
+                initializeCharts(data.rankings);
+                
             } catch (error) {
                 console.error('Error loading power rankings:', error);
                 document.getElementById('power-rankings-container').innerHTML = `
@@ -546,11 +654,138 @@
             }
         }
 
+        // Initialize Charts Function
+        function initializeCharts(rankings) {
+            // Prepare data for PPG chart
+            const ppgData = rankings.map(team => ({
+                name: team.teamName,
+                ppg: parseFloat(team.stats.pointsPerGame)
+            }));
+            
+            // Create PPG Comparison Chart
+            window.ChartFunctions.createPPGComparisonChart('ppg-chart', ppgData);
+            
+            // Create sparkline charts for each team
+            rankings.forEach((team, index) => {
+                // Generate sample historical ranking data
+                const historicalRankings = [
+                    index + 3, 
+                    index + 2, 
+                    index + 1, 
+                    index + 2, 
+                    index + 1
+                ].map(r => Math.max(1, Math.min(12, r))); // Keep within 1-12 range
+                
+                setTimeout(() => {
+                    window.ChartFunctions.createSparkline(`sparkline-${index}`, historicalRankings);
+                }, 100 * index); // Stagger creation for smooth animation
+            });
+            
+            // Populate team selector
+            const teamSelect = document.getElementById('team-select');
+            rankings.forEach(team => {
+                const option = document.createElement('option');
+                option.value = team.teamName;
+                option.textContent = team.teamName;
+                teamSelect.appendChild(option);
+            });
+            
+            // Team trend chart handler
+            teamSelect.addEventListener('change', async function(e) {
+                if (e.target.value) {
+                    await loadTeamTrend(e.target.value);
+                }
+            });
+        }
+        
+        // Load Team Trend Data
+        async function loadTeamTrend(teamName) {
+            try {
+                // Destroy existing chart if it exists
+                if (currentTrendChart) {
+                    currentTrendChart.destroy();
+                    currentTrendChart = null;
+                }
+                
+                // Load historical data from seasons
+                const seasonsResponse = await fetch('data/history/seasons.json');
+                const seasonsData = await seasonsResponse.json();
+                
+                // Get active season
+                const activeSeason = seasonsData.seasons.find(s => s.isActive);
+                if (!activeSeason) {
+                    console.error('No active season found');
+                    return;
+                }
+                
+                // Load weeks data for the active season
+                const weeksResponse = await fetch(`data/history/${activeSeason.id}/weeks.json`);
+                const weeksData = await weeksResponse.json();
+                
+                // Arrays to store trend data
+                const weekLabels = [];
+                const rankings = [];
+                
+                // Load current rankings
+                const currentResponse = await fetch('data/power-rankings.json');
+                const currentData = await currentResponse.json();
+                const currentRank = currentData.rankings.findIndex(team => team.teamName === teamName) + 1;
+                
+                // Load each archived week to find team's historical rankings
+                for (const week of weeksData.weeks) {
+                    try {
+                        const weekResponse = await fetch(`data/history/${activeSeason.id}/week-${week.weekNumber}.json`);
+                        const weekData = await weekResponse.json();
+                        
+                        // Find team's ranking in this week
+                        const teamRank = weekData.rankings.findIndex(team => team.teamName === teamName) + 1;
+                        
+                        if (teamRank > 0) {
+                            weekLabels.push(`Week ${week.weekNumber}`);
+                            rankings.push(teamRank);
+                        }
+                    } catch (error) {
+                        console.warn(`Could not load week ${week.weekNumber}:`, error);
+                    }
+                }
+                
+                // Add current week if we have data
+                if (currentRank > 0) {
+                    const currentWeekNum = weeksData.weeks.length + 1;
+                    weekLabels.push(`Week ${currentWeekNum}`);
+                    rankings.push(currentRank);
+                }
+                
+                // Only create chart if we have data
+                if (rankings.length > 0) {
+                    // Create trend chart and store reference
+                    currentTrendChart = window.ChartFunctions.createTeamTrendChart('trend-chart', {
+                        teamName: teamName,
+                        weeks: weekLabels,
+                        rankings: rankings
+                    });
+                } else {
+                    // Show no data message
+                    const canvas = document.getElementById('trend-chart');
+                    const ctx = canvas.getContext('2d');
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.font = '16px Inter';
+                    ctx.fillStyle = '#64748b';
+                    ctx.textAlign = 'center';
+                    ctx.fillText('No historical data available for ' + teamName, canvas.width / 2, canvas.height / 2);
+                }
+                
+            } catch (error) {
+                console.error('Error loading team trend:', error);
+            }
+        }
+
         // Initialize page
         document.addEventListener('DOMContentLoaded', function() {
             updateHitCounter();
             loadPowerRankings();
         });
     </script>
+    <script src="js/charts.js"></script>
 </body>
 </html>

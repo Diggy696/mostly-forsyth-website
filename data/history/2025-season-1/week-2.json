@@ -1,0 +1,80 @@
+{
+  "lastUpdated": "July 19,2025",
+  "currentSeason": "2025 Season 1",
+  "weekNumber": 1,
+  "isArchived": true,
+  "rankings": [
+    {
+      "teamName": "Nebraska",
+      "playerName": "Evan Chase",
+      "commentary": "3 Top Ten Computer opponents. 3 Wins.  The only man still to play a human, it's hard to ignore the results.",
+      "stats": {
+        "record": "3-0",
+        "lastOpponent": "vs #14 Michigan (W 44-7)",
+        "nextOpponent": "at Mich St, vs Maryland, vs Minnesota",
+        "lastWin": "vs #14 Michigan (W 44-7)",
+        "pointsPerGame": "32.7"
+      }
+    },
+    {
+      "teamName": "Stanford Cardinal",
+      "playerName": "Brooks Ore", 
+      "commentary": "The Cardinal has rolled since their opening week loss.  Toppling lowly USC and Wisconsin doesn't say much, but 3-1 does well enough to keep him at 2.",
+      "stats": {
+        "record": "3-1",
+        "lastOpponent": "vs Illinois (W 23-20)",
+        "nextOpponent": "@ Washington, @ Michigan St., vs. Michigan",
+        "lastWin": "vs Illinois (W 23-20)",
+        "pointsPerGame": "29.25"
+      }
+    },
+    {
+      "teamName": "Maryland Terrapins",
+      "playerName": "Daniel Thomas Smith",
+      "commentary": "Doing just enough in the fourth quarter, Coach Smith rallied the troops to keep them solidly middle of the pack.  Receivers could use a lesson or two in how to catch the ball though.",
+      "stats": {
+        "record": "2-2",
+        "lastOpponent": "vs Wisconsin (W 21-14)",
+        "nextOpponent": "@ Minn, vs. Colorado, @Nebraska",
+        "lastWin": "vs Wisconsin (W 21-14)",
+        "pointsPerGame": "20.25"
+      }
+    },
+    {
+      "teamName": "USC Trojans",
+      "playerName": "Jacob Roth",
+      "commentary": "Once a bottom dweller, and still mostly is.  A close game with Stanford, and a huge win at home vs Minnesota gets the Trojans their first win and up to fourth.  Which says alot about this league.",
+      "stats": {
+        "record": "1-4",
+        "lastOpponent": "vs. Minnesota (W 21-16)",
+        "nextOpponent": "@ Illinois, vs Alabama",
+        "lastWin": "vs. Minnesota (W 21-16)",
+        "pointsPerGame": "12.4"
+      }
+    },
+        {
+      "teamName": "Minnesota Gophers",
+      "playerName": "Cameron Clinard ",
+      "commentary": "The records say he's better, but after a closely contested match with the Trojans, we had to stick Coach Clinard here.  At least he's got a soft cushion before the real bottom of the league... ",
+      "stats": {
+        "record": "2-2",
+        "lastOpponent": "vs Penn State (W 24-17)",
+        "nextOpponent": "@ Maryland, @Ohio State, vs. Colorado",
+        "lastWin": "vs Penn State (W 24-17)",
+        "pointsPerGame": "19.5"
+      }
+    },
+    {
+      "teamName": "Wisconsin Badgers",
+      "playerName": "Darren Webber",
+      "commentary": "Want a free win? Just come on up to Madison. To put it bluntly, these guys stink.",
+      "stats": {
+        "record": "1-4",
+        "lastOpponent": "@ Maryland (L 21-14)",
+        "nextOpponent": " vs Mich St, @ Michigan, vs. Iowa",
+        "lastWin": "N/A",
+        "pointsPerGame": "18.0"
+      }
+    }
+  ]
+}

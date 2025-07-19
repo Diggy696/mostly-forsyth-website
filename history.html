@@ -479,8 +479,8 @@
                     return;
                 }
                 
-                // Sort weeks by week number (descending - newest first)
-                data.weeks.sort((a, b) => b.weekNumber - a.weekNumber);
+                // Sort weeks by week number (ascending - oldest first)
+                data.weeks.sort((a, b) => a.weekNumber - b.weekNumber);
                 
                 const weekGrid = document.createElement('div');
                 weekGrid.className = 'week-grid';

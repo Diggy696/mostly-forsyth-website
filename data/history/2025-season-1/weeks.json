@@ -1,26 +1,58 @@
- {
-     "seasonId": "2025-season-1",
-     "seasonName": "2025 Season 1", 
-     "weeks": [
-       {
-         "weekNumber": 1,
-         "date": "2025-07-17T12:00:00Z",
-         "title": "Week 1 Rankings",
-         "isCurrent": false,
-         "preview": [
-           {
-             "rank": 1,
-             "teamName": "Nebraska",
-             "playerName": "Evan C. Harrison",
-             "record": "3-0"
-           },
-           {
-             "rank": 2,
-             "teamName": "Stanford",
-             "playerName": "Brooks B. Ore",
-             "record": "3-1"
-           }
-         ]
-       }
-     ]
-   }
+{
+  "seasonId": "2025-season-1",
+  "seasonName": "2025 Season 1", 
+  "weeks": [
+    {
+      "weekNumber": 1,
+      "date": "2025-07-17T12:00:00Z",
+      "title": "Week 1 Rankings",
+      "isCurrent": false,
+      "preview": [
+        {
+          "rank": 1,
+          "teamName": "Nebraska",
+          "playerName": "Evan Chase",
+          "record": "0-0"
+        },
+        {
+          "rank": 2,
+          "teamName": "Stanford Cardinal",
+          "playerName": "Brooks Ore",
+          "record": "0-0"
+        },
+        {
+          "rank": 3,
+          "teamName": "Maryland Terrapins",
+          "playerName": "Daniel Thomas Smith",
+          "record": "0-0"
+        }
+      ]
+    },
+    {
+      "weekNumber": 2,
+      "date": "2025-07-19T12:00:00Z",
+      "title": "Week 2 Rankings",
+      "isCurrent": false,
+      "preview": [
+        {
+          "rank": 1,
+          "teamName": "Nebraska",
+          "playerName": "Evan Chase",
+          "record": "3-0"
+        },
+        {
+          "rank": 2,
+          "teamName": "Stanford Cardinal",
+          "playerName": "Brooks Ore",
+          "record": "3-1"
+        },
+        {
+          "rank": 3,
+          "teamName": "Maryland Terrapins",
+          "playerName": "Daniel Thomas Smith",
+          "record": "2-2"
+        }
+      ]
+    }
+  ]
+}

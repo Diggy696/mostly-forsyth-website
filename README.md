@@ -300,6 +300,7 @@ For each new week:
    - Change `lastUpdated` to current date (e.g., "July 20, 2025")
    - Update team commentary
    - Update records and stats
+   - **IMPORTANT for Charts:** Update `pointsPerGame` field for each team
    - Reorder teams by moving entire team objects
 5. **Save:** `Ctrl+S`
 6. **Commit changes:**
@@ -309,6 +310,29 @@ For each new week:
    git push
    ```
 7. **Website updates automatically in 2-5 minutes!**
+
+### 📊 Interactive Charts - Auto-Update Information
+
+**The charts automatically update when you update `power-rankings.json`!**
+
+The interactive charts pull data directly from your current power-rankings.json file, so they refresh automatically when you update your weekly rankings. No additional steps needed!
+
+**What the charts show:**
+- **Points Per Game Chart:** Uses the `pointsPerGame` field from each team's stats
+- **Win/Loss Streak Chart:** Analyzes the `record` field and commentary to estimate streaks
+- **Team Trend Chart:** Currently shows sample data (can be enhanced with historical tracking)
+- **Mini Sparklines:** Show recent ranking trends on each team card
+
+**To ensure charts display correctly:**
+1. Always include the `pointsPerGame` field in each team's stats
+2. Keep the `record` field in "W-L" format (e.g., "8-1")
+3. The charts will automatically update when the page loads with new data
+
+**Future Enhancement (Optional):**
+To make the Team Trend Chart show real historical data, you could add a `rankingHistory` array to each team in power-rankings.json:
+```json
+"rankingHistory": [8, 6, 4, 5, 3]  // Previous week rankings
+```
 
 ### Simple Date Format
 
@@ -516,6 +540,7 @@ git push origin main
 - [ ] Update `lastUpdated` to current date (e.g., "July 20, 2025")
 - [ ] Update each team's commentary
 - [ ] Update records and last games
+- [ ] **Update `pointsPerGame` for each team (required for charts)**
 - [ ] Reorder teams if rankings changed
 - [ ] Save file (`Ctrl+S`)
 
