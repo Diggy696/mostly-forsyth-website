@@ -5,25 +5,25 @@
     {
       "teamName": "Nebraska",
       "playerName": "Evan Chase",
-      "commentary": "The Huskers keep on rolling. No surprise here. TThe two newbies come to Lincoln, let's see how he fares.",
+      "commentary": "The Huskers keep on rolling. No surprise here. The two newbies come to Lincoln, let's see how he fares.",
       "stats": {
         "record": "5-0",
-        "lastOpponent": "@ Michigan State (W 14-3)",
-        "nextOpponent": "@ Maryland, @Minnesota, vs Washington",
-        "lastWin": "@ Michigan State (W 14-3)",
-        "pointsPerGame": "28.6"
+        "pointsPerGame": "28.6",
+        "offensiveYPG": "293.2",
+        "totalTouchdowns": "17",
+        "yardsAllowedPerGame": "215.8"
       }
     },
     {
       "teamName": "Stanford Cardinal",
       "playerName": "Brooks Ore", 
-      "commentary": "The cardinal continued it's winning ways and looks to continue on rolling.",
+      "commentary": "The cardinal continued it's winning ways and looks to continue on.",
       "stats": {
         "record": "5-1",
-        "lastOpponent": "@ Washington (W 28-26)",
-        "nextOpponent": "@ Michigan State, @ Michigan, vs Clemson",
-        "lastWin": "@ Washington (W 28-26)",
-        "pointsPerGame": "29"
+        "pointsPerGame": "29",
+        "offensiveYPG": "359.4",
+        "totalTouchdowns": "18",
+        "yardsAllowedPerGame": "311.2"
       }
     }, 
     {
@@ -32,10 +32,10 @@
       "commentary": "Rising from the ashes with a convincing win at Alabama, The mullinator is starting to cook. Look out, I believe they call this a winning streak.",
       "stats": {
         "record": "3-4",
-        "lastOpponent": "@ Alabama (W 27-17)",
-        "nextOpponent": "Notre Dame, Wisconsin, Colorado",
-        "lastWin": "@ Alabama (W 27-17)",
-        "pointsPerGame": "15.71"
+        "pointsPerGame": "15.71",
+        "offensiveYPG": "272.3",
+        "totalTouchdowns": "13",
+        "yardsAllowedPerGame": "272.6"
       }
     },
         {
@@ -44,10 +44,10 @@
       "commentary": "Coach Clinard came close to closing out Ohio State and snuck away with one at Maryland in OT.  Like bread...he's rising, but could sour quickly.",
       "stats": {
         "record": "3-3",
-        "lastOpponent": "vs Maryland (W 34-21 OT)",
-        "nextOpponent": "Colorado, Nebraska, Miami",
-        "lastWin": "vs Maryland (W 34-21 OT)",
-        "pointsPerGame": "20.83"
+        "pointsPerGame": "20.83",
+        "offensiveYPG": "243",
+        "totalTouchdowns": "13",
+        "yardsAllowedPerGame": "254.8"
       }
     },
     {
@@ -56,10 +56,10 @@
       "commentary": "Squeeking one out against the lowly badgers then blowing OT to Minnesota isn't doing much to convince the committe of much. Maryland continues to forge ahead, but going to Nebraska is likely going to keep him down.",
       "stats": {
         "record": "3-3",
-        "lastOpponent": "vs Colorado (W 10-3)",
-        "nextOpponent": "@Nebraska, @ Oregon, vs IU",
-        "lastWin": "vs Colorado (W 10-3)",
-        "pointsPerGame": "18.5"
+        "pointsPerGame": "18.5",
+        "offensiveYPG": "299.7",
+        "totalTouchdowns": "14",
+        "yardsAllowedPerGame": "241.8"
       }
     },
     {
@@ -68,10 +68,10 @@
       "commentary": "Scared of double OT once more, Coach Webber eeked one out against Michigan State, but couldn't hold his own against Michigan.  The lowly Badgers stay low.",
       "stats": {
         "record": "2-5",
-        "lastOpponent": "@ Maryland (L 14-3)",
-        "nextOpponent": " vs. Iowa , @ USC, vs. Washington",
-        "lastWin": "N/A",
-        "pointsPerGame": "18.42"
+        "pointsPerGame": "18.42",
+        "offensiveYPG": "277.9",
+        "totalTouchdowns": "17",
+        "yardsAllowedPerGame": "265.8"
       }
     }
   ]

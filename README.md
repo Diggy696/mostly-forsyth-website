@@ -301,6 +301,10 @@ For each new week:
    - Update team commentary
    - Update records and stats
    - **IMPORTANT for Charts:** Update `pointsPerGame` field for each team
+   - **NEW Stats Fields Required:**
+     - `offensiveYPG`: Offensive yards per game (e.g., "385.2")
+     - `totalTouchdowns`: Total touchdowns scored (e.g., "18")
+     - `yardsAllowedPerGame`: Defensive yards allowed per game (e.g., "275.4")
    - Reorder teams by moving entire team objects
 5. **Save:** `Ctrl+S`
 6. **Commit changes:**
@@ -326,7 +330,11 @@ The interactive charts pull data directly from your current power-rankings.json 
 **To ensure charts display correctly:**
 1. Always include the `pointsPerGame` field in each team's stats
 2. Keep the `record` field in "W-L" format (e.g., "8-1")
-3. The charts will automatically update when the page loads with new data
+3. Include the new stats fields:
+   - `offensiveYPG`: Offensive yards per game
+   - `totalTouchdowns`: Total touchdowns scored
+   - `yardsAllowedPerGame`: Defensive yards allowed per game
+4. The charts will automatically update when the page loads with new data
 
 **Future Enhancement (Optional):**
 To make the Team Trend Chart show real historical data, you could add a `rankingHistory` array to each team in power-rankings.json:
@@ -539,8 +547,12 @@ git push origin main
 - [ ] Open `data/power-rankings.json`
 - [ ] Update `lastUpdated` to current date (e.g., "July 20, 2025")
 - [ ] Update each team's commentary
-- [ ] Update records and last games
+- [ ] Update records
 - [ ] **Update `pointsPerGame` for each team (required for charts)**
+- [ ] **Update stats fields:**
+  - [ ] `offensiveYPG` - Offensive yards per game
+  - [ ] `totalTouchdowns` - Total touchdowns scored
+  - [ ] `yardsAllowedPerGame` - Defensive yards allowed per game
 - [ ] Reorder teams if rankings changed
 - [ ] Save file (`Ctrl+S`)
 

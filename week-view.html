@@ -558,21 +558,24 @@
                                         <div class="stat-value record">${team.stats.record}</div>
                                     </div>
                                     <div class="stat-item">
-                                        <div class="stat-label">Last Game</div>
-                                        <div class="stat-value">${team.stats.lastOpponent}</div>
-                                    </div>
-                                    <div class="stat-item">
-                                        <div class="stat-label">vs Computer</div>
-                                        <div class="stat-value">${team.stats.lastComputerWin}</div>
-                                    </div>
-                                    <div class="stat-item">
-                                        <div class="stat-label">Last Win</div>
-                                        <div class="stat-value">${team.stats.lastWin}</div>
-                                    </div>
-                                    <div class="stat-item">
                                         <div class="stat-label">PPG</div>
                                         <div class="stat-value">${team.stats.pointsPerGame}</div>
                                     </div>
+                                    ${team.stats.offensiveYPG ? `
+                                    <div class="stat-item">
+                                        <div class="stat-label">Offensive YPG</div>
+                                        <div class="stat-value">${team.stats.offensiveYPG}</div>
+                                    </div>` : ''}
+                                    ${team.stats.totalTouchdowns ? `
+                                    <div class="stat-item">
+                                        <div class="stat-label">Total TDs</div>
+                                        <div class="stat-value">${team.stats.totalTouchdowns}</div>
+                                    </div>` : ''}
+                                    ${team.stats.yardsAllowedPerGame ? `
+                                    <div class="stat-item">
+                                        <div class="stat-label">Yards Allowed/G</div>
+                                        <div class="stat-value">${team.stats.yardsAllowedPerGame}</div>
+                                    </div>` : ''}
                                 </div>
                             </div>
                         </article>
